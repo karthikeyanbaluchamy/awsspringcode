@@ -4,6 +4,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR....
       - aws --version
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       #- $(aws ecr get-login --region ap-south-1 --no-include-email)
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 905418049972.dkr.ecr.us-east-1.amazonaws.com
       - # Replace with this to your repository URI
