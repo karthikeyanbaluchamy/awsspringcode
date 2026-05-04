@@ -54,6 +54,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<dependencies>
+  <!-- Logstash Logback Encoder for JSON logging -->
+  <dependency>
+      <groupId>net.logstash.logback</groupId>
+      <artifactId>logstash-logback-encoder</artifactId>
+      <version>7.4</version>
+  </dependency>
+
+  <!-- Elasticsearch REST client (optional, for direct shipping) -->
+  <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>elasticsearch-rest-high-level-client</artifactId>
+      <version>7.17.10</version>
+  </dependency>
+</dependencies>
 	</dependencies>
 
 	<build>
