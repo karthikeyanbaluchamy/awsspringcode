@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!-- Console appender for local development -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+          <customFields>{"app":"user-service","environment":"${ENVIRONMENT:-dev}"}</customFields>
+      </encoder>
+  </appender>
+
+  <!-- File appender with JSON format -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>logs/application.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+          <fileNamePattern>logs/application-%d{yyyy-MM-dd}.log</fileNamePattern>
+          <maxHistory>30</maxHistory>
+      </rollingPolicy>
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+          <customFields>{"app":"user-service","environment":"${ENVIRONMENT:-dev}"}</customFields>
+      </encoder>
+  </appender>
+
+  <!-- Root logger -->
+  <root level="INFO">
+      <appender-ref ref="CONSOLE" />
+      <appender-ref ref="FILE" />
+  </root>
+
+  <!-- Your application package - set to DEBUG to capture all API calls -->
+  <logger name="com.sys.user" level="DEBUG" additivity="false">
+      <appender-ref ref="CONSOLE" />
+      <appender-ref ref="FILE" />
+  </logger>
+</configuration>
