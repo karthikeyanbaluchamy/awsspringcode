@@ -1,0 +1,19 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /app/logs/*.log
+  json.keys_under_root: true
+  json.add_error_key: true
+
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  api_key: "${ES_KEY}"
+  ssl.enabled: true
+  index: "springboot-logs-%{+yyyy.MM.dd}"
+
+setup.ilm.enabled: false
+setup.template.name: "springboot-logs"
+setup.template.pattern: "springboot-logs-*"
+
+logging.level: info
