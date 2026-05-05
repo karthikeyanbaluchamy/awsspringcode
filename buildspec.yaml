@@ -40,7 +40,7 @@ phases:
       # Build Filebeat Sidecar
       #################################
       - echo Building Filebeat image...
-      - docker build -t $FILEBEAT_REPO:latest ./filebeat
+      - docker build -t $FILEBEAT_REPO:latest ./src/filebeat
       - docker tag $FILEBEAT_REPO:latest $FILEBEAT_REPO:$IMAGE_TAG
 
   post_build:
