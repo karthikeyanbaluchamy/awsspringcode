@@ -14,8 +14,8 @@ processors:
       overwrite_keys: true
 
 output.elasticsearch:
-  hosts: ["https://YOUR_ES_ENDPOINT"]
-  api_key: "YOUR_API_KEY"
+  hosts: ["${ES_HOST}"]
+  api_key: "${ES_KEY}"
 
   ssl.enabled: true
   ssl.verification_mode: none
