@@ -4,8 +4,8 @@ filebeat.inputs:
     paths:
       - /app/logs/*.log
 
-    json.keys_under_root: true
-    json.add_error_key: true
+    #json.keys_under_root: true
+    #json.add_error_key: true
 
 processors:
   - decode_json_fields:
@@ -14,8 +14,8 @@ processors:
       overwrite_keys: true
 
 output.elasticsearch:
-  hosts: ["${ES_HOST}"]
-  api_key: "${ES_KEY}"
+  hosts: ["https://my-elasticsearch-project-a6f27d.es.us-central1.gcp.elastic.cloud:443"]
+  api_key: "emVYVjlKMEJxVFB2NnVKVVFmUnU6b3FNOENtUEtRdE9nWHlhRzhZVmxEQQ=="
 
   ssl.enabled: true
   ssl.verification_mode: none
