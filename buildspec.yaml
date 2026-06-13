@@ -57,9 +57,9 @@ phases:
       #################################
       # Push Filebeat
       #################################
-      - echo Pushing Filebeat image...
-      - docker push $FILEBEAT_REPO:latest
-      - docker push $FILEBEAT_REPO:$IMAGE_TAG
+      #- echo Pushing Filebeat image...
+      #- docker push $FILEBEAT_REPO:latest
+      #- docker push $FILEBEAT_REPO:$IMAGE_TAG
 
       #################################
       # ECS Deployment file (ONLY APP)
